@@ -1,6 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/mkhan/Desktop/pushswap'
-gcc -Wall -Wextra -Werror -I. test.c ft_split.c  -o push_swap
- 
-make: Leaving directory `/Users/mkhan/Desktop/pushswap'
- 

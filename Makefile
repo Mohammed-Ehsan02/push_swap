@@ -6,11 +6,11 @@
 #    By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 17:06:53 by amalbrei          #+#    #+#              #
-#    Updated: 2022/08/11 17:16:01 by mkhan            ###   ########.fr        #
+#    Updated: 2022/08/12 14:48:08 by mkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	test.c ft_split.c 
+SRCS			=	test.c ft_split.c ft_atois.c
 
 CC				= gcc
 RM				= rm -f

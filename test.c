@@ -6,17 +6,11 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/12 09:51:46 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/12 15:14:04 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-typedef struct s_node {
-	struct s_node *next;
-	struct s_node *prev;
-	int 	data;
-}	t_node;
 
 /**
  * @brief creating a list when data is n number of arguments.
@@ -35,7 +29,6 @@ void	init_list(t_node **node, char **argv)
 		add_at_end(&(*node), ft_atoi(argv[i]));
 		i++;
 	}
-	
 }
 
 /**
@@ -127,15 +120,127 @@ void	ft_init_s(t_node	**a, char *s)
 	free(arr);	
 }
 
+/**
+ * @brief calculating the size of list.
+ * 
+ * @param n 
+ * @return int 
+ */
+int	lst_size(t_node	*n)
+{
+	int	size;
+	int	data;
+	
+	size = 1;
+	data = n->data;
+	n = n->next;
+	while (data != n->data)
+	{
+		size++;
+		n = n->next;
+	}
+	return (size);
+}
+
+/**
+ * @brief freeing the list.
+ * 
+ * @param a 
+ */
+void	ft_free(t_node **a)
+{
+	int	size;
+	t_node	*tmp;
+	t_node	*tmp1;
+	
+	tmp = (*a);
+	tmp1 = tmp;
+	size = lst_size(*a);
+	while (size)
+	{
+		tmp1 = tmp;
+		tmp = tmp->next;
+		free(tmp1);
+		size--;
+	}
+}
+
+/**
+ * @brief creating nodes for alias.
+ * 
+ * @param alias 
+ * @param data 
+ */
+void	custom_create(t_node **alias, int data)
+{
+	if(!(*alias))
+		create_node(alias, data);
+	else
+		add_at_end(alias, data);		
+}
+
+/**
+ * @brief Create a alias object of a.
+ * 
+ * @param node 
+ * @param alias 
+ */
+void	create_alias(t_node **node, t_node **alias)
+{
+	int	i[5];
+	t_node *tmp;
+	t_node *tmp1;
+	
+	i[0] = 0;
+	i[4] = lst_size(*node);
+	tmp = (*node);
+	while (i[0] < i[4])
+	{
+		i[3] = tmp->data;
+		i[1] = 0;
+		i[2] = 0;
+		tmp1 = (*node);
+		while (i[1] < i[4])
+		{
+			if (i[3] > tmp1->next->data)
+				i[2]++;
+			tmp1 = tmp1->next;
+			i[1]++;
+		}
+		tmp1 = tmp1->next;
+		custom_create(alias, i[2]);
+		tmp = tmp->next;
+		i[0]++;
+	}
+}
+
+// void	sort_list(t_node **a, t_node **b, t_node **tmpa)
+// {
+// 	int len;
+	
+// 	len = lst_size(*a);
+// 	create_alias(a, tmpa);
+// }
+
+int	start_sort(t_node **a, t_node **b, t_node **tmpa)
+{
+	if (is_sorted(*a))
+	{
+		ft_free(a);
+		return(0);
+	}
+	// sort_list(a, b, tmpa);
+}
+
 int main (int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
-	t_node	*tempa;
+	t_node	*tmpa;
 	
 	a = NULL;
 	b = NULL;
-	tempa == NULL;
+	tmpa = NULL;
 	if (argc >= 2)
 	{
 		if (argc == 2)
@@ -144,6 +249,7 @@ int main (int argc, char **argv)
 		}
 		else
 			ft_init_list(&a, argv);
+		start_sort(&a, &b, &tmpa);
 	}
 	return (0);
 }

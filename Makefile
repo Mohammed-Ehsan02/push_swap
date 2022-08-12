@@ -6,7 +6,7 @@
 #    By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 17:06:53 by amalbrei          #+#    #+#              #
-#    Updated: 2022/08/12 14:48:08 by mkhan            ###   ########.fr        #
+#    Updated: 2022/08/12 20:12:13 by mkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ $(NAME):
 				$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean:
-				$(RM)
+				$(RM) 
 
 fclean:			clean
 				$(RM) $(NAME)

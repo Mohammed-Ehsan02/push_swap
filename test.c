@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/12 15:14:04 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/12 19:59:47 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param node 
  * @param argv 
  */
-void	init_list(t_node **node, char **argv)
+void	ft_init_list(t_node **node, char **argv)
 {
 	int	i;
 
@@ -214,14 +214,70 @@ void	create_alias(t_node **node, t_node **alias)
 	}
 }
 
-// void	sort_list(t_node **a, t_node **b, t_node **tmpa)
-// {
-// 	int len;
-	
-// 	len = lst_size(*a);
-// 	create_alias(a, tmpa);
-// }
+void	print_list(t_node *a, t_node *tmpa, int len)
+{
+	while (len)
+	{
+		printf("%d  ->  %d\n", a->data, tmpa->data);
+		a = a->next;
+		tmpa = tmpa->next;
+		len--;
+	}
+}
 
+/**
+ * @brief checks len of the stack and calls
+ * 			 according sort funcions. --under progress--
+ * @param a 
+ * @param b 
+ * @param tmpa 
+ */
+void	sort_list(t_node **a, t_node **b, t_node **tmpa)
+{
+	int len;
+	(void)b;
+	len = lst_size(*a);
+	create_alias(a, tmpa);
+	// print_list(*a, *tmpa, len);
+}
+
+/**
+ * @brief check if the list is sorted
+ * 
+ * @param node 
+ * @return int 
+ */
+int	is_sorted(t_node *node)
+{
+	int	i;
+	int size;
+	t_node	*tmp;
+	
+	tmp = node;
+	size = lst_size(node);
+	i = 0;
+	while (i < lst_size(node))
+	{
+		if (tmp->data > tmp->next->data)
+			break ;
+		tmp = tmp->next;
+		i++;
+	}
+	if (i + 1 < lst_size(node))
+		return (0);
+	else
+		return (1);
+	return (0);
+}
+
+/**
+ * @brief initial start of sort call function.
+ * split into two parts -- norminette.
+ * @param a 
+ * @param b 
+ * @param tmpa 
+ * @return int 
+ */
 int	start_sort(t_node **a, t_node **b, t_node **tmpa)
 {
 	if (is_sorted(*a))
@@ -229,7 +285,10 @@ int	start_sort(t_node **a, t_node **b, t_node **tmpa)
 		ft_free(a);
 		return(0);
 	}
-	// sort_list(a, b, tmpa);
+	sort_list(a, b, tmpa);
+	ft_free(a);
+	ft_free(tmpa);
+	return (1);
 }
 
 int main (int argc, char **argv)

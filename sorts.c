@@ -6,17 +6,29 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:04:38 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 19:46:33 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/14 21:43:56 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/**
+ * @brief Perform opertaion to sort two numbers.
+ * 
+ * @param a 
+ */
 
 void	sort_2_num(t_node **a)
 {
 	if ((*a)->data > (*a)->next->data)
 		sa(a);
 }
+
+/**
+ * @brief Perform operation to sort three numbers.
+ * 
+ * @param a 
+ */
 
 void	sort_3_num(t_node **a)
 {
@@ -43,3 +55,8 @@ void	sort_3_num(t_node **a)
 			rra(a);
 	}
 }
+
+// void	sort_4_num(t_node **a, t_node **b)
+// {
+	
+// }

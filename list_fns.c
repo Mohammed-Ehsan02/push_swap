@@ -1,0 +1,211 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_fns.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/14 21:10:15 by mkhan             #+#    #+#             */
+/*   Updated: 2022/08/14 21:50:40 by mkhan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+/**
+ * @brief Create a node object.
+ * 
+ * @param head 
+ * @param data 
+ */
+
+void	create_node(t_node **head, int data)
+{
+	t_node	*tmp;
+
+	tmp = (t_node *)malloc(sizeof(t_node));
+	tmp->prev = tmp;
+	tmp->data = data;
+	tmp->next = tmp;
+	(*head) = tmp;
+}
+
+/**
+ * @brief Delete the first node of the list.
+ * 
+ * @param n 
+ */
+
+void	del_first_node(t_node **n)
+{	
+	t_node	*tmp;
+	
+	if ((*n) == NULL) // if (!(*n))
+		return ;
+	tmp = (*n);
+	if (tmp == (*n)->next)
+	{
+		free((*n));
+		(*n) = NULL;
+		return ;
+	}
+	(*n)->next->prev = (*n)->prev;
+	(*n)->prev->next = (*n)->next;
+	(*n) = (*n)->next;
+	free(tmp);
+}
+
+/**
+ * @brief Adds a new node at the begining of the list.
+ * 
+ * @param tail 
+ * @param data 
+ */
+
+void	add_at_begin(t_node	**tail, int data)
+{
+	t_node	*new;
+	t_node	*tmp;
+
+	create_node(&new, data);
+	if(!(*tail))
+		return ;
+	tmp = (*tail)->prev;
+	new->next = (*tail);
+	new->prev = tmp;
+	(*tail)->prev = new;
+	tmp->next = new;
+	(*tail) = new;
+	
+}
+
+/**
+ * @brief Adds a new node at the end of the list.
+ * 
+ * @param head 
+ * @param data 
+ */
+
+void	add_at_end(t_node **head, int data)
+{
+	t_node	*new;
+	t_node	*tmp;
+	
+	create_node(&new, data);
+	if(!(*head))
+		return ;
+	tmp = (*head)->prev;
+	tmp->next = new;
+	new->prev = tmp;
+	new->next = (*head);
+	(*head)->prev = new;
+}
+
+/**
+ * @brief calculating the size of list.
+ * 
+ * @param n 
+ * @return int 
+ */
+
+int	lst_size(t_node	*n)
+{
+	int	size;
+	int	data;
+	
+	size = 1;
+	data = n->data;
+	n = n->next;
+	while (data != n->data)
+	{
+		size++;
+		n = n->next;
+	}
+	return (size);
+}
+
+/**
+ * @brief Get the min value from the list.
+ * 
+ * @param n 
+ * @return int - min value.
+ */
+
+int	get_min(t_node *n)
+{
+	t_node	*tmp;
+	int		size;
+	int		min;
+	int		i;
+	
+	i = 0;
+	min = n->data;
+	size = lst_size(n);
+	tmp = n;
+	while (i < size)
+	{
+		if (tmp->data < min)
+			min = tmp->data;
+		tmp = tmp->next;
+		i++;
+	}
+	return (min);
+}
+
+/**
+ * @brief Get the max value from the list.
+ * 
+ * @param n 
+ * @return int - max value.
+ */
+
+int	get_max(t_node *n)
+{
+	t_node	*tmp;
+	int		size;
+	int		max;
+	int		i;
+	
+	i = 0;
+	max = n->data;
+	size = lst_size(n);
+	tmp = n;
+	while (i < size)
+	{
+		if (tmp->data > max)
+			max = tmp->data;
+		tmp = tmp->next;
+		i++;
+	}
+	return (max);
+}
+
+/**
+ * @brief Get the position of the data in the list.
+ * 
+ * @param n 
+ * @param data 
+ * @return int - position of the node holding the data.
+ */
+
+int	get_pos(t_node *n, int data)
+{
+	t_node	*tmp;
+	int		pos;
+	int		i;
+	int		size;
+	
+	size = lst_size(n);
+	tmp = n;
+	pos = 1;
+	i = 0;
+	while (i < size)
+	{
+		if (tmp->data == data)
+			break ;
+		tmp = tmp->next;
+		pos++;
+		i++;
+	}
+	return (pos);
+}

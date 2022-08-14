@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:54:14 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 19:02:56 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/14 21:40:48 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	add_at_end(t_node **head, int data);
 int		lst_size(t_node	*n);
 void	ft_free(t_node **a);
 
+int	get_min(t_node *n);
+int	get_max(t_node *n);
+int	get_pos(t_node *n, int data);
+
 void	create_alias(t_node **node, t_node **alias);
 int		start_sort(t_node **a, t_node **b, t_node **tmpa);
 
@@ -58,5 +62,6 @@ void	rrr(t_node **a, t_node **b);
 /* ---- Sort functions ---- */
 void	sort_2_num(t_node **a);
 void	sort_3_num(t_node **a);
+void	sort_4_num(t_node **a);
 
 #endif

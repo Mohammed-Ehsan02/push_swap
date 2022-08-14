@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 19:03:29 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/14 21:49:21 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
  * @param node 
  * @param argv 
  */
+
 void	ft_init_list(t_node **node, char **argv)
 {
 	int	i;
@@ -32,90 +33,12 @@ void	ft_init_list(t_node **node, char **argv)
 }
 
 /**
- * @brief Create a node object.
- * 
- * @param head 
- * @param data 
- */
-void	create_node(t_node **head, int data)
-{
-	t_node	*tmp;
-
-	tmp = (t_node *)malloc(sizeof(t_node));
-	tmp->prev = tmp;
-	tmp->data = data;
-	tmp->next = tmp;
-	(*head) = tmp;
-}
-
-void	del_first_node(t_node **n)
-{	
-	t_node	*tmp;
-	
-	if ((*n) == NULL) // if (!(*n))
-		return ;
-	tmp = (*n);
-	if (tmp == (*n)->next)
-	{
-		free((*n));
-		(*n) = NULL;
-		return ;
-	}
-	(*n)->next->prev = (*n)->prev;
-	(*n)->prev->next = (*n)->next;
-	(*n) = (*n)->next;
-	free(tmp);
-}
-
-/**
- * @brief Adds a new node at the begining of the list.
- * 
- * @param tail 
- * @param data 
- */
-void	add_at_begin(t_node	**tail, int data)
-{
-	t_node	*new;
-	t_node	*tmp;
-
-	create_node(&new, data);
-	if(!(*tail))
-		return ;
-	tmp = (*tail)->prev;
-	new->next = (*tail);
-	new->prev = tmp;
-	(*tail)->prev = new;
-	tmp->next = new;
-	(*tail) = new;
-	
-}
-/**
- * @brief Adds a new node at the end of the list.
- * 
- * @param head 
- * @param data 
- */
-void	add_at_end(t_node **head, int data)
-{
-	t_node	*new;
-	t_node	*tmp;
-	
-	create_node(&new, data);
-	if(!(*head))
-		return ;
-	tmp = (*head)->prev;
-	tmp->next = new;
-	new->prev = tmp;
-	new->next = (*head);
-	(*head)->prev = new;
-}
-
-/**
  * @brief Creating a list of data, when provided as one string in
  * 		  the arguments. 
  * @param a 
  * @param s 
  */
+
 void	ft_init_s(t_node	**a, char *s)
 {
 	int	i;
@@ -140,32 +63,11 @@ void	ft_init_s(t_node	**a, char *s)
 }
 
 /**
- * @brief calculating the size of list.
- * 
- * @param n 
- * @return int 
- */
-int	lst_size(t_node	*n)
-{
-	int	size;
-	int	data;
-	
-	size = 1;
-	data = n->data;
-	n = n->next;
-	while (data != n->data)
-	{
-		size++;
-		n = n->next;
-	}
-	return (size);
-}
-
-/**
  * @brief freeing the list.
  * 
  * @param a 
  */
+
 void	ft_free(t_node **a)
 {
 	int	size;
@@ -190,6 +92,7 @@ void	ft_free(t_node **a)
  * @param alias 
  * @param data 
  */
+
 void	custom_create(t_node **alias, int data)
 {
 	if(!(*alias))
@@ -204,6 +107,7 @@ void	custom_create(t_node **alias, int data)
  * @param node 
  * @param alias 
  */
+
 void	create_alias(t_node **node, t_node **alias)
 {
 	int	i[5];
@@ -258,8 +162,12 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	len = lst_size(*a);
 	create_alias(a, tmpa);
 	print_list(*a, *tmpa, len);
-	sort_3_num(a);
-	print_list(*a, *tmpa, len);
+	// sort_3_num(a);
+	int  i = get_max(*a);
+	int j = get_min(*a);
+	int k = get_pos(*a, 12);
+	printf("max = %d\n min = %d\n pos = %d\n", i, j, k);
+	// print_list(*a, *tmpa, len);
 	// sa(a);
 	// sb(tmpa);
 	// ss(a, tmpa);

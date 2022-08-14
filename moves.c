@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 20:19:38 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 17:27:31 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/14 18:53:46 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sa(t_node **a)
 	tmp = (*a)->data;
 	(*a)->data = (*a)->next->data;
 	(*a)->next->data = tmp;
-	write(1, "sa\n", 1);
+	write(1, "sa\n", 3);
 }
 
 /**
@@ -41,7 +41,7 @@ void	sb(t_node **b)
 	tmp = (*b)->data;
 	(*b)->data = (*b)->next->data;
 	(*b)->next->data = tmp;
-	write(1, "sb\n", 1);
+	write(1, "sb\n", 3);
 
 }
 
@@ -56,7 +56,7 @@ void	ss(t_node **a, t_node **b)
 {
 	sa(a);
 	sb(b);
-	write(1, "ss\n", 1);
+	write(1, "ss\n", 3);
 }
 
 /**

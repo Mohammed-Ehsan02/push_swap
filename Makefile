@@ -6,11 +6,11 @@
 #    By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 17:06:53 by amalbrei          #+#    #+#              #
-#    Updated: 2022/08/14 16:16:15 by mkhan            ###   ########.fr        #
+#    Updated: 2022/08/14 18:53:08 by mkhan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	test.c ft_split.c ft_atois.c moves.c
+SRCS			=	test.c ft_split.c ft_atois.c moves.c sorts.c
 
 OBJS			= $(SRCS:.c=.o)
 

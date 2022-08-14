@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 17:51:36 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/14 18:56:46 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,7 +257,8 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	(void)b;
 	len = lst_size(*a);
 	create_alias(a, tmpa);
-	// sort_2_num();
+	// print_list(*a, *tmpa, len);
+	sort_2_num(a);
 	// print_list(*a, *tmpa, len);
 	// sa(a);
 	// sb(tmpa);

@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 21:49:21 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/15 14:17:00 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,10 +163,10 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	create_alias(a, tmpa);
 	print_list(*a, *tmpa, len);
 	// sort_3_num(a);
-	int  i = get_max(*a);
-	int j = get_min(*a);
-	int k = get_pos(*a, 12);
-	printf("max = %d\n min = %d\n pos = %d\n", i, j, k);
+	// int  i = get_max(*a);
+	// int j = get_min(*a);
+	// int k = get_pos(*a, 12);
+	// printf("max = %d\n min = %d\n pos = %d\n", i, j, k);
 	// print_list(*a, *tmpa, len);
 	// sa(a);
 	// sb(tmpa);
@@ -180,7 +180,9 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	// rra(a);
 	// rrb(tmpa);
 	// rrr(a, tmpa);
-	// print_list(*a, *tmpa, len);
+	sort_4_num(a, b);
+	// sort_3_num(a);
+	print_list(*a, *tmpa, len);
 }
 
 /**

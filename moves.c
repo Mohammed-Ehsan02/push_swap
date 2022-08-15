@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 20:19:38 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 21:40:56 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/15 14:36:30 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	pa(t_node **a, t_node **b)
 	if (!(*b))
 		return ;
 	tmp = (*b)->data;
-	del_first_node(&(*a));
+	del_first_node(&(*b));
 	if (!(*a))
 		create_node(&(*a), tmp);
 	else
@@ -90,16 +90,19 @@ void	pa(t_node **a, t_node **b)
 
 void	pb(t_node **a, t_node **b)
 {
+		// printf("i am in pb\n");
 	int	tmp;
 	
 	if (!(*a))
 		return ;
 	tmp = (*a)->data;
-	del_first_node(&(*b));
+	del_first_node(&(*a));
 	if (!(*b))
 		create_node(&(*b), tmp);
 	else
 		add_at_begin(&(*b), tmp);
+	// print_list(*a, *b, lst_size(*a));
+	// printf("i am out of pb\n");
 	write(1, "pb\n", 3);
 }
 

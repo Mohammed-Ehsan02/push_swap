@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/15 14:17:00 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/15 16:41:47 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,8 +180,9 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	// rra(a);
 	// rrb(tmpa);
 	// rrr(a, tmpa);
-	sort_4_num(a, b);
+	// sort_4_num(a, b);
 	// sort_3_num(a);
+	sort_more(a, b);
 	print_list(*a, *tmpa, len);
 }
 

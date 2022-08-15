@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:04:38 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/15 14:40:21 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/15 16:40:01 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sort_2_num(t_node **a)
 
 void	sort_3_num(t_node **a)
 {
-	printf("i am in sort 3\n");
+	// printf("i am in sort 3\n");
 	// printf("%d %d %d %d\n", lst_size(*a), (*a)->data, (*a)->next->data, (*a)->prev->data);
 	if ((*a)->data > (*a)->next->data)
 	{
@@ -56,11 +56,12 @@ void	sort_3_num(t_node **a)
 		if ((*a)->data > (*a)->prev->data && (*a)->next->data > (*a)->prev->data)
 			rra(a);
 	}
-	printf("i am going out of sort 3\n");
+	// printf("i am going out of sort 3\n");
 }
 
 void	sort_4_num(t_node **a, t_node **b)
 {
+		// printf("i am in sort 4\n");
 	int	min;
 	int	pos;
 
@@ -97,5 +98,68 @@ void	sort_4_num(t_node **a, t_node **b)
 		pb(a, b);
 		sort_3_num(a);
 		pa(a, b);
+	}
+		// printf("i am out of sort 4\n");
+}
+
+void	sort_more(t_node **a, t_node **b)
+{
+	// int	i;
+	// int	min;
+	// int	pos;
+	// int	size;
+
+	// i = 0;
+	// min = get_min(*a);
+	// pos = get_pos(*a, min);
+	// size = lst_size(*a);
+	// while (1)
+	// {
+	// 	if (size == 2)
+	// 		break ;
+	// 	if ((*a)->data == min)
+	// 	{
+	// 		pb(a, b);
+	// 		i++;
+	// 	}
+	// 	else if (pos < size / 2)
+	// 		ra(a);
+	// 	else
+	// 		rra(a);
+	// }
+	// sort_4_num(a, b);
+	// while (i)
+	// {
+	// 	pa(a, b);
+	// 	i--;
+	// }
+	
+	int	i[5];
+
+	i[0] = 0;
+	i[1] = lst_size(*a);
+	i[3] = get_min(*a);
+	i[4] = get_pos(*a, i[3]);
+	while (1)
+	{
+		i[2] = lst_size(*a);
+		if (i[2] == 4)
+			break ;
+		i[3] = get_min(*a);
+		if ((*a)->data == i[3])
+		{
+			pb(a, b);
+			i[0]++;
+		}
+		else if (i[4] < i[1] / 2)
+			ra(a);
+		else
+			rra(a);
+	}
+	sort_4_num(a, b);
+	while (i[0])
+	{
+		pa(a, b);
+		i[0]--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/16 16:51:03 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/16 16:53:00 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void	print_list(t_node *a, t_node *tmpa, int len)
  * @param b 
  * @param tmpa 
  */
+
 void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 {
 	int len;
@@ -177,6 +178,7 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
  * @param node 
  * @return int 
  */
+
 int	is_sorted(t_node *node)
 {
 	int	i;
@@ -208,6 +210,7 @@ int	is_sorted(t_node *node)
  * @param tmpa 
  * @return int 
  */
+
 int	start_sort(t_node **a, t_node **b, t_node **tmpa)
 {
 	if (is_sorted(*a))

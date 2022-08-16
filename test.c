@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/15 16:41:47 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/16 16:13:18 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,11 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	(void)b;
 	len = lst_size(*a);
 	create_alias(a, tmpa);
-	print_list(*a, *tmpa, len);
+	// print_list(*a, *tmpa, len);
+	if (len <= 34)
+		sort_small_chunk(tmpa, b, len);
+	if (len > 35 && len <= 134)
+		sort_medium_chunk(tmpa, b);
 	// sort_3_num(a);
 	// int  i = get_max(*a);
 	// int j = get_min(*a);
@@ -182,8 +186,8 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	// rrr(a, tmpa);
 	// sort_4_num(a, b);
 	// sort_3_num(a);
-	sort_more(a, b);
-	print_list(*a, *tmpa, len);
+	// sort_more(a, b);
+	// print_list(*a, *tmpa, len);
 }
 
 /**

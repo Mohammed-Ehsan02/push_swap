@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:54:14 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/15 15:46:49 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/16 15:13:07 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,11 @@ void	sort_2_num(t_node **a);
 void	sort_3_num(t_node **a);
 void	sort_4_num(t_node **a, t_node **b);
 void	sort_more(t_node **a, t_node **b);
+
+/* ---- Sort Chunk Functions ---- */
+void	sort_small_chunk(t_node **a, t_node **b, int len);
+void	sort_medium_chunk(t_node **a, t_node **b);
+void	sort_the_push_chunk(t_node **a, t_node **b);
+void	push_the_chunk(t_node **a, t_node **b, int min, int max);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:11:25 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/16 16:12:54 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/16 16:42:49 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	sort_medium_chunk(t_node **a, t_node **b)
 
 	i = 0;
 	size = lst_size(*a);
-	min = size / 2;
+	min = size / 4;
 	min--;
 	max = min;
 	while (max < size)
@@ -132,3 +132,31 @@ void	sort_medium_chunk(t_node **a, t_node **b)
 	sort_the_push_chunk(a, b);
 }
 
+/**
+ * @brief Sort the large chunk of numbers from 135 to 500.
+ * 
+ * @param a 
+ * @param b 
+ */
+
+void	sort_large_chunk(t_node **a, t_node **b)
+{
+	int	size;
+	int	min;
+	int	max;
+	int	i;
+
+	i = 0;
+	size = lst_size(*a);
+	min = size / 10;
+	min--;
+	max = min;
+	while (max < size - 9)
+	{
+		push_the_chunk(a, b, i - 1, max + 4);
+		i = max + 2;
+		max += min;
+	}
+	sort_more(a, b);
+	sort_the_push_chunk(a, b);
+}

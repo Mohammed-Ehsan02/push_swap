@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:54:14 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/16 15:13:07 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/16 16:28:20 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	sort_small_chunk(t_node **a, t_node **b, int len);
 void	sort_medium_chunk(t_node **a, t_node **b);
 void	sort_the_push_chunk(t_node **a, t_node **b);
 void	push_the_chunk(t_node **a, t_node **b, int min, int max);
+void	sort_large_chunk(t_node **a, t_node **b);
 
 #endif

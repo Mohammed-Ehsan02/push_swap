@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:11:25 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/16 16:42:49 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/17 14:02:32 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,24 @@ void	sort_small_chunk(t_node **a, t_node **b, int len)
 void	push_the_chunk(t_node **a, t_node **b, int min, int max)
 {
 	int	size;
-	
+
 	while (1)
+	{
+		if ((*a)->data >= min && (*a)->data <= max)
 		{
-			if ((*a)->data >= min && (*a)->data <= max)
-			{
-				pb(a, b);
-				if ((*b)->data <= (min + max) / 2)
-					rb(b);
-			}
-			else
-				ra(a);
-			if (*b)
-			{
-				size = lst_size(*b);
-				if (size == max + 1)
-					break ;
-			}
+			pb(a, b);
+			if ((*b)->data <= (min + max) / 2)
+				rb(b);
 		}
+		else
+			ra(a);
+		if (*b)
+		{
+			size = lst_size(*b);
+			if (size == max + 1)
+				break ;
+		}
+	}
 }
 /**
  * @brief Sort the pushed chunk.

@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 21:10:15 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/14 21:50:40 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/17 14:28:16 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	create_node(t_node **head, int data)
 void	del_first_node(t_node **n)
 {	
 	t_node	*tmp;
-	
-	if ((*n) == NULL) // if (!(*n))
+
+	if ((*n) == NULL)
 		return ;
 	tmp = (*n);
 	if (tmp == (*n)->next)
@@ -68,7 +68,7 @@ void	add_at_begin(t_node	**tail, int data)
 	t_node	*tmp;
 
 	create_node(&new, data);
-	if(!(*tail))
+	if (!(*tail))
 		return ;
 	tmp = (*tail)->prev;
 	new->next = (*tail);
@@ -76,7 +76,6 @@ void	add_at_begin(t_node	**tail, int data)
 	(*tail)->prev = new;
 	tmp->next = new;
 	(*tail) = new;
-	
 }
 
 /**
@@ -90,9 +89,9 @@ void	add_at_end(t_node **head, int data)
 {
 	t_node	*new;
 	t_node	*tmp;
-	
+
 	create_node(&new, data);
-	if(!(*head))
+	if (!(*head))
 		return ;
 	tmp = (*head)->prev;
 	tmp->next = new;
@@ -112,7 +111,7 @@ int	lst_size(t_node	*n)
 {
 	int	size;
 	int	data;
-	
+
 	size = 1;
 	data = n->data;
 	n = n->next;
@@ -122,90 +121,4 @@ int	lst_size(t_node	*n)
 		n = n->next;
 	}
 	return (size);
-}
-
-/**
- * @brief Get the min value from the list.
- * 
- * @param n 
- * @return int - min value.
- */
-
-int	get_min(t_node *n)
-{
-	t_node	*tmp;
-	int		size;
-	int		min;
-	int		i;
-	
-	i = 0;
-	min = n->data;
-	size = lst_size(n);
-	tmp = n;
-	while (i < size)
-	{
-		if (tmp->data < min)
-			min = tmp->data;
-		tmp = tmp->next;
-		i++;
-	}
-	return (min);
-}
-
-/**
- * @brief Get the max value from the list.
- * 
- * @param n 
- * @return int - max value.
- */
-
-int	get_max(t_node *n)
-{
-	t_node	*tmp;
-	int		size;
-	int		max;
-	int		i;
-	
-	i = 0;
-	max = n->data;
-	size = lst_size(n);
-	tmp = n;
-	while (i < size)
-	{
-		if (tmp->data > max)
-			max = tmp->data;
-		tmp = tmp->next;
-		i++;
-	}
-	return (max);
-}
-
-/**
- * @brief Get the position of the data in the list.
- * 
- * @param n 
- * @param data 
- * @return int - position of the node holding the data.
- */
-
-int	get_pos(t_node *n, int data)
-{
-	t_node	*tmp;
-	int		pos;
-	int		i;
-	int		size;
-	
-	size = lst_size(n);
-	tmp = n;
-	pos = 1;
-	i = 0;
-	while (i < size)
-	{
-		if (tmp->data == data)
-			break ;
-		tmp = tmp->next;
-		pos++;
-		i++;
-	}
-	return (pos);
 }

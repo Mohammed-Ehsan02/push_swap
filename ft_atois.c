@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:31:35 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/25 19:50:40 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:52:26 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	ft_atoi_overflow(size_t result, int sign)
 
 int	ft_atoi(char *str)
 {
-	size_t	result;
-	size_t	temp_result;
-	int				sign;
-	int				i;
+	size_t		result;
+	size_t		temp_result;
+	int			sign;
+	int			i;
 
 	result = 0;
 	sign = 1;
@@ -123,10 +123,10 @@ void	ft_atoil_overflow(size_t result, int sign, char **tab)
 
 int	ft_atoil(char **tab, char *str)
 {
-	size_t	result;
-	size_t	temp_result;
-	int				sign;
-	int				i;
+	size_t		result;
+	size_t		temp_result;
+	int			sign;
+	int			i;
 
 	result = 0;
 	sign = 1;

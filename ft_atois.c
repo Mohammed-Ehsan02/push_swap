@@ -6,30 +6,45 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:31:35 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/17 12:33:39 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:50:40 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_atoi_continues(unsigned long result, int sign)
+/**
+ * @brief Extension of atoi, checks for overflow.
+ * 
+ * @param result 
+ * @param sign 
+ */
+
+void	ft_atoi_overflow(size_t result, int sign)
 {
-	if (result > 2147483647 && sign == 1)
+	if (result > 1844674407370955169 && sign == 1)
 	{
 		write(2, "Error\n", 6);
 		exit(0);
 	}
-	if (result > 2147483648 && sign == -1)
+	if (result > 1844674407370955169 && sign == -1)
 	{
 		write(2, "Error\n", 6);
 		exit(0);
 	}
 }
 
+/**
+ * @brief Convert the string input to integers when the input is n
+ * number of arguments. 
+ * 
+ * @param str 
+ * @return int 
+ */
+
 int	ft_atoi(char *str)
 {
-	unsigned long	result;
-	unsigned long	temp_result;
+	size_t	result;
+	size_t	temp_result;
 	int				sign;
 	int				i;
 
@@ -51,9 +66,15 @@ int	ft_atoi(char *str)
 			exit(0);
 		}
 	}
-	ft_atoi_continues(result, sign);
+	ft_atoi_overflow(result, sign);
 	return (result * sign);
 }
+
+/**
+ * @brief Free the list.
+ * 
+ * @param tab 
+ */
 
 void	free_lst(char **tab)
 {
@@ -69,24 +90,41 @@ void	free_lst(char **tab)
 	write(2, "Error\n", 6);
 }
 
-void	ft_atoil_continues(unsigned long result, int sign, char **tab)
+/**
+ * @brief Extended function atiol to check for overflows.
+ * 
+ * @param result 
+ * @param sign 
+ * @param tab 
+ */
+
+void	ft_atoil_overflow(size_t result, int sign, char **tab)
 {
-	if (result > 2147483647 && sign == 1)
+	if (result > 1844674407370955169 && sign == 1)
 	{
 		free_lst(tab);
 		exit(0);
 	}
-	if (result > 2147483648 && sign == -1)
+	if (result > 1844674407370955169 && sign == -1)
 	{
 		free_lst(tab);
 		exit(0);
 	}
 }
 
+/**
+ * @brief Convert the string input into integers.
+ * Checks for 
+ * 
+ * @param tab 
+ * @param str 
+ * @return int 
+ */
+
 int	ft_atoil(char **tab, char *str)
 {
-	unsigned long	result;
-	unsigned long	temp_result;
+	size_t	result;
+	size_t	temp_result;
 	int				sign;
 	int				i;
 
@@ -108,6 +146,6 @@ int	ft_atoil(char **tab, char *str)
 			exit(0);
 		}
 	}
-	ft_atoil_continues(result, sign, tab);
+	ft_atoil_overflow(result, sign, tab);
 	return (result * sign);
 }

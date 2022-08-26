@@ -6,11 +6,20 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/17 14:37:29 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/26 11:43:50 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/**
+ * @brief Function to print the list and visualize the stacks.
+ * Not used anywhere, ONLY FOR TESTING PURPOSE.
+ * 
+ * @param a 
+ * @param tmpa 
+ * @param len 
+ */
 
 // void	print_list(t_node *a, t_node *tmpa, int len)
 // {

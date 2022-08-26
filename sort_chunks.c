@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:11:25 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/17 14:02:32 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/26 12:15:46 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,10 +148,10 @@ void	sort_large_chunk(t_node **a, t_node **b)
 
 	i = 0;
 	size = lst_size(*a);
-	min = size / 10;
+	min = size / 9;
 	min--;
 	max = min;
-	while (max < size - 9)
+	while (max < size - 11)
 	{
 		push_the_chunk(a, b, i - 1, max + 4);
 		i = max + 2;

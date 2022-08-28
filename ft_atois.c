@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:31:35 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/25 19:52:26 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/08/28 11:40:58 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 
 void	ft_atoi_overflow(size_t result, int sign)
 {
-	if (result > 1844674407370955169 && sign == 1)
+	if (result > 2147483647 && sign == 1)
 	{
 		write(2, "Error\n", 6);
 		exit(0);
 	}
-	if (result > 1844674407370955169 && sign == -1)
+	if (result > 2147483648 && sign == -1)
 	{
 		write(2, "Error\n", 6);
 		exit(0);
@@ -100,12 +100,12 @@ void	free_lst(char **tab)
 
 void	ft_atoil_overflow(size_t result, int sign, char **tab)
 {
-	if (result > 1844674407370955169 && sign == 1)
+	if (result > 2147483647 && sign == 1)
 	{
 		free_lst(tab);
 		exit(0);
 	}
-	if (result > 1844674407370955169 && sign == -1)
+	if (result > 2147483648 && sign == -1)
 	{
 		free_lst(tab);
 		exit(0);
@@ -115,8 +115,7 @@ void	ft_atoil_overflow(size_t result, int sign, char **tab)
 /**
  * @brief Convert the string input into integers.
  * Checks for 
- * 
- * @param tab 
+ * * @param tab 
  * @param str 
  * @return int 
  */

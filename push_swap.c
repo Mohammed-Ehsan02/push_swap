@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:15:57 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/26 11:43:50 by mkhan            ###   ########.fr       */
+/*   Updated: 2022/09/17 14:02:41 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	sort_list(t_node **a, t_node **b, t_node **tmpa)
 	if (len >= 135 && len <= 500)
 		sort_large_chunk(tmpa, b);
 	if (len >= 501)
-		sort_more(tmpa, b);
+		sort_large_chunk(tmpa, b);
 }
 
 /**

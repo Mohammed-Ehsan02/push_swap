@@ -114,14 +114,14 @@ int	is_sorted(t_node *node)
 	tmp = node;
 	size = lst_size(node);
 	i = 0;
-	while (i < lst_size(node))
+	while (i < size)
 	{
 		if (tmp->data > tmp->next->data)
 			break ;
 		tmp = tmp->next;
 		i++;
 	}
-	if (i + 1 < lst_size(node))
+	if (i + 1 < size)
 		return (0);
 	else
 		return (1);

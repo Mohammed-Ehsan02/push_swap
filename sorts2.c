@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 15:02:41 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/17 15:07:06 by mkhan            ###   ########.fr       */
+/*   Updated: 2023/07/31 14:07:25 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	sort_more_cont(t_node **a, t_node **b, int i)
  */
 
 void	sort_more(t_node **a, t_node **b)
-{	
+{
 	int	i[5];
 
 	i[0] = 0;

@@ -6,7 +6,7 @@
 /*   By: mkhan <mkhan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 21:10:15 by mkhan             #+#    #+#             */
-/*   Updated: 2022/08/17 14:28:16 by mkhan            ###   ########.fr       */
+/*   Updated: 2023/07/31 14:07:02 by mkhan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	create_node(t_node **head, int data)
  */
 
 void	del_first_node(t_node **n)
-{	
+{
 	t_node	*tmp;
 
 	if ((*n) == NULL)

@@ -125,6 +125,9 @@ int	is_duplicate(char **argv)
 
 void	ft_error(int argc, char **argv)
 {
+	int	i;
+
+	i = 0;
 	if (argc >= 2)
 	{
 		if (argc > 2)
@@ -136,6 +139,17 @@ void	ft_error(int argc, char **argv)
 			}
 		}
 		else if (argc == 2)
+		{
+			while(argv[1][i] == ' ')
+			{
+				i++;
+				if (argv[1][i] == '\0')
+				{
+					write (2, "Error\n", 6);
+					exit(0);
+				}
+			}
 			ft_error_continues(argv);
+		}
 	}
 }

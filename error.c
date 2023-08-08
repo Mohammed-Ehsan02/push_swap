@@ -140,6 +140,7 @@ void	ft_error(int argc, char **argv)
 		}
 		else if (argc == 2)
 		{
+			// fix here
 			while(argv[1][i] == ' ')
 			{
 				i++;
@@ -148,7 +149,7 @@ void	ft_error(int argc, char **argv)
 					write (2, "Error\n", 6);
 					exit(0);
 				}
-			}
+			}// till here
 			ft_error_continues(argv);
 		}
 	}

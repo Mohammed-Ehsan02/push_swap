@@ -123,34 +123,20 @@ int	is_duplicate(char **argv)
  * @param argv 
  */
 
-void	ft_error(int argc, char **argv)
+void	ft_error(char *args)
 {
 	int	i;
 
 	i = 0;
-	if (argc >= 2)
+	while(args[i] == ' ')
 	{
-		if (argc > 2)
+		i++;
+		if (args[i] == '\0')
 		{
-			if (is_more_sign(argv) || is_alpha(argv) || is_duplicate(argv))
-			{
-				write (2, "Error\n", 6);
-				exit(0);
-			}
-		}
-		else if (argc == 2)
-		{
-			// fix here
-			while(argv[1][i] == ' ')
-			{
-				i++;
-				if (argv[1][i] == '\0')
-				{
-					write (2, "Error\n", 6);
-					exit(0);
-				}
-			}// till here
-			ft_error_continues(argv);
+			write (2, "Error\n", 6);
+			free(args);
+			exit(0);
 		}
 	}
+	ft_error_continues(args);
 }

@@ -18,7 +18,7 @@ OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I. -fsanitize=address -g3
+CFLAGS			= -Wall -Wextra -Werror -I. -g3 #-fsanitize=address 
 
 NAME			= push_swap
 

@@ -125,15 +125,18 @@ int	is_duplicate_str(char **argv)
  * @param argv 
  */
 
-void	ft_error_continues(char **argv)
+void	ft_error_continues(char *args)
 {
 	int		i;
 	char	**tab;
 
 	i = 0;
-	if (*argv[1] == 0)
+	if (args[0] == 0)
+	{
+		free(args);
 		exit(0);
-	tab = ft_split(argv[1], ' ');
+	}
+	tab = ft_split(args, ' ');
 	if (is_more_sign_str(tab) || is_alpha_str(tab) || is_duplicate_str(tab))
 	{
 		while (tab[i])
@@ -142,6 +145,7 @@ void	ft_error_continues(char **argv)
 			i++;
 		}
 		free(tab);
+		free(args);
 		write (2, "Error\n", 6);
 		exit(0);
 	}

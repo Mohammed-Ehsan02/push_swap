@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_node {
 	struct s_node	*next;
@@ -81,11 +82,11 @@ void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
 /* ---- Error Handling ---- */
-void	ft_error(int argc, char **argv);
+void	ft_error(char *args);
 int		is_more_sign(char **argv);
 int		is_alpha(char **argv);
 int		is_duplicate(char **argv);
-void	ft_error_continues(char **argv);
+void	ft_error_continues(char *args);
 int		is_more_sign_str(char **argv);
 int		is_alpha_str(char **argv);
 int		is_duplicate_str(char **argv);

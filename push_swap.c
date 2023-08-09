@@ -79,22 +79,94 @@ int	start_sort(t_node **a, t_node **b, t_node **tmpa)
 	return (1);
 }
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return(0);
+	while (*s)
+	{
+		i++;
+		s++;
+	}
+	s -= i;
+	return (i);
+}
+
+char	*ft_strjoin(char *s1, char *s2, bool flag)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	j = 0;
+	if (!s1)
+	{
+		s1 = (char *)malloc(sizeof(char) * 1);
+		s1[i] = '\0';
+	}
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (0);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	if (flag)
+		free (s1);
+	return (str);
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
 	t_node	*tmpa;
+	int		i;
+	char	*args;
+	bool	flag;
 
 	a = NULL;
 	b = NULL;
 	tmpa = NULL;
-	ft_error(argc, argv);
+	i = 1;
+	args = "";
+	int j = 0;
+	flag = false;
+	while (argv[i])
+	{
+		while (argv[i][j] && argv[i][j] == ' ')
+		{
+				j++;
+				if (argv[i][j] == '\0')
+				{
+					write(1, "Error\n", 6);
+					return (0);
+				}
+
+		}
+		i++;
+	}
+	i = 1;
+	while (argv[i])
+	{
+		args = ft_strjoin(args, " ", flag);
+		flag = true;
+		args = ft_strjoin(args, argv[i], flag);
+		i++;
+	}
+	ft_error(args);
 	if (argc >= 2)
 	{
-		if (argc == 2)
-			ft_init_s(&a, argv[1]);
-		else
-			ft_init_list(&a, argv);
+		ft_init_s(&a, args);
+		free(args);
 		start_sort(&a, &b, &tmpa);
 	}
 	return (0);

@@ -79,22 +79,6 @@ int	start_sort(t_node **a, t_node **b, t_node **tmpa)
 	return (1);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return(0);
-	while (*s)
-	{
-		i++;
-		s++;
-	}
-	s -= i;
-	return (i);
-}
-
 char	*ft_strjoin(char *s1, char *s2, bool flag)
 {
 	int		i;
@@ -124,50 +108,46 @@ char	*ft_strjoin(char *s1, char *s2, bool flag)
 	return (str);
 }
 
-int	main(int argc, char **argv)
+static void	push_swap(int argc, char *args)
 {
 	t_node	*a;
 	t_node	*b;
 	t_node	*tmpa;
-	int		i;
-	char	*args;
-	bool	flag;
 
 	a = NULL;
 	b = NULL;
 	tmpa = NULL;
-	i = 1;
-	args = "";
-	int j = 0;
-	flag = false;
-	while (argv[i])
-	{
-		while (argv[i][j] && argv[i][j] == ' ')
-		{
-				j++;
-				if (argv[i][j] == '\0')
-				{
-					write(1, "Error\n", 6);
-					return (0);
-				}
-
-		}
-		i++;
-	}
-	i = 1;
-	while (argv[i])
-	{
-		args = ft_strjoin(args, " ", flag);
-		flag = true;
-		args = ft_strjoin(args, argv[i], flag);
-		i++;
-	}
-	ft_error(args);
 	if (argc >= 2)
 	{
 		ft_init_s(&a, args);
 		free(args);
 		start_sort(&a, &b, &tmpa);
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int		i;
+	char	*args;
+	bool	flag;
+
+	i = 1;
+	args = "";
+	flag = false;
+	if (argc >= 2)
+	{
+		if (arg_checker(argv) == false)
+			return (1);
+		i = 1;
+		while (argv[i])
+		{
+			args = ft_strjoin(args, " ", flag);
+			flag = true;
+			args = ft_strjoin(args, argv[i], flag);
+			i++;
+		}
+		ft_error(args);
+		push_swap(argc, args);
 	}
 	return (0);
 }

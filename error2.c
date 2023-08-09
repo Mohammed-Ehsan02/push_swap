@@ -150,9 +150,6 @@ void	ft_error_continues(char *args)
 		exit(0);
 	}
 	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
+		free(tab[i++]);
 	free(tab);
 }

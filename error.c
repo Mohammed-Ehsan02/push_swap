@@ -26,47 +26,23 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-/**
- * @brief Checks if only one sign apprears for a number. Either '+' || '-'
- * 
- * @param argv 
- * @return int 
- * Returns 1 if more than one sign or invalid input.
- * Returns 0 if valid input with only one sign.
- */
-
-int	is_more_sign(char **argv)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
-	i = 1;
-	j = 0;
-	while (argv[i])
+	i = 0;
+	if (!s)
+		return (0);
+	while (*s)
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
-				j++;
-			if (!ft_isdigit(argv[i][j]))
-				return (1);
-			j++;
-		}
 		i++;
+		s++;
 	}
-	return (0);
+	s -= i;
+	return (i);
 }
 
-/**
- * @brief To check if any alphabets are inputed.
- * 
- * @param argv 
- * @return int 
- * returns 1 if alphabets found oherwise 0.
- */
-
-int	is_alpha(char **argv)
+bool	arg_checker(char **argv)
 {
 	int	i;
 	int	j;
@@ -75,45 +51,18 @@ int	is_alpha(char **argv)
 	j = 0;
 	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
+		while (argv[i][j] && argv[i][j] == ' ')
 		{
-			if (ft_isalpha(argv[i][j]))
-				return (1);
 			j++;
+			if (argv[i][j] == '\0')
+			{
+				write(1, "Error\n", 6);
+				return (false);
+			}
 		}
 		i++;
 	}
-	return (0);
-}
-
-/**
- * @brief Checks if any duplicates present.
- * 
- * @param argv 
- * @return int 
- * returns 1 if duplicates found otherwise 0.
- */
-
-int	is_duplicate(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	while (argv[i])
-	{
-		j = i + 1;
-		while (argv[j])
-		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	return (true);
 }
 
 /**
@@ -128,7 +77,7 @@ void	ft_error(char *args)
 	int	i;
 
 	i = 0;
-	while(args[i] == ' ')
+	while (args[i] == ' ')
 	{
 		i++;
 		if (args[i] == '\0')
